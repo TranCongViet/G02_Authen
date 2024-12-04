@@ -18,9 +18,10 @@ export function Register() {
     const onSubmit = async (data) => {
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/user/register', {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}user/register`, {
                 username: data.username,
                 password: data.password,
+                email: data.email,
             });
             setMessage(response.data.message);
             setIsError(false);

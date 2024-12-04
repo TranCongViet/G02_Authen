@@ -19,7 +19,7 @@ export function Login() {
     const onSubmit = async (data) => {
         setLoading(true);
         try {
-            const response = await axios.post(`http://localhost:3000/auth/login`, {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}auth/login`, {
                 key: data.username,
                 password: data.password,
             });
@@ -45,7 +45,7 @@ export function Login() {
         const authorizationCode = response.credential;
 
         // Gửi mã authorizationCode đến backend để lấy access_token
-        const result = await axios.post('http://localhost:3000/auth/google', {
+        const result = await axios.post(`${import.meta.env.VITE_SERVER_URL}auth/google`, {
             googleToken: authorizationCode,
         });
         login(result.data.token, result.data.username);
@@ -96,7 +96,7 @@ export function Login() {
                                             {...register('username', {
                                                 required: 'Tên đăng nhập là bắt buộc',
                                                 minLength: {
-                                                    value: 6,
+                                                    value: 4,
                                                     message: 'Tên đăng nhập cần ít nhất 6 ký tự',
                                                 }
                                             })}

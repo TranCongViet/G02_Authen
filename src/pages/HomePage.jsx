@@ -1,27 +1,27 @@
 import { useState, useEffect } from "react";
 
 export function HomePage() {
-    const movies = [
+    const movies = [ //Demo data
         {
             id: 1,
             title: "Arcane 2",
-            description: "A mind-bending thriller about dream invasion.",
+            description: "Mùa thứ hai của Arcane, series hoạt hình dựa trên vũ trụ của game League of Legends, tiếp tục khai thác các cuộc đấu tranh giữa Piltover và Zaun.",
             image: "./arcane.png",
-            details: "Dom Cobb is a thief with the rare ability to enter people's dreams and steal secrets from their subconscious.",
+            details: "Mùa thứ hai của Arcane, series hoạt hình dựa trên vũ trụ của game League of Legends, tiếp tục khai thác các cuộc đấu tranh giữa Piltover và Zaun. Bộ phim tiếp tục phát triển mối quan hệ giữa các nhân vật chính như Vi, Jinx và Caitlyn trong bối cảnh chiến tranh và sự phân chia xã hội ngày càng sâu sắc. Mùa này mang đến nhiều tình tiết gay cấn và những yếu tố chiến lược mới.",
         },
         {
             id: 2,
             title: "Công tử bạc liêu",
-            description: "A space adventure to save humanity.",
+            description: "Bộ phim kể lại câu chuyện của Ba Hơn, người con trai của ông Hội đồng Lịnh - một trong những gia đình giàu có đầu tiên ở Việt Nam. ",
             image: "./ctbl.png",
-            details: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+            details: "Bộ phim kể lại câu chuyện của Ba Hơn, người con trai của ông Hội đồng Lịnh - một trong những gia đình giàu có đầu tiên ở Việt Nam. Sau khi du học tại Pháp, Ba Hơn nổi tiếng với lối sống xa hoa, tiêu tiền vô tội vạ. Phim khai thác cuộc sống hào nhoáng nhưng đầy sóng gió của Ba Hơn khi đối mặt với các thử thách và sự cạnh tranh từ những người bạn và đối thủ, trong đó có Tư Phát​",
         },
         {
             id: 3,
             title: "Mai",
-            description: "The story of Gotham's savior, Batman.",
+            description: "Phim kể về câu chuyện của Mai, một người phụ nữ đang đối mặt với những thử thách trong cuộc sống và tình yêu.",
             image: "./mai.png",
-            details: "Batman raises the stakes in his war on crime in Gotham City.",
+            details: "Phim kể về câu chuyện của Mai, một người phụ nữ đang đối mặt với những thử thách trong cuộc sống và tình yêu. Những mối quan hệ trong phim được khai thác sâu sắc, phản ánh sự đấu tranh giữa lý trí và tình cảm, mang đến một cái nhìn mới mẻ về thế giới nội tâm của nhân vật",
         },
     ];
 
@@ -75,7 +75,6 @@ export function HomePage() {
                 <div
                     className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-300"
                     onClick={(e) => {
-                        // Nếu click vào overlay mà không phải modal
                         if (e.target === e.currentTarget) {
                             setSelectedMovie(null);
                         }
