@@ -29,7 +29,7 @@ export function ProfilePage() {
                 {user ? (
                     <div> <div className="flex flex-col justify-center items-center p-8">
                         <img
-                            src="/image.png"
+                            src="./image.png"
                             alt="Avatar"
                             className="w-32 h-32 rounded-full object-cover"
                         />

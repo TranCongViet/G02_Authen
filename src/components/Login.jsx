@@ -40,17 +40,20 @@ export function Login() {
     };
 
     const handleGoogleLoginSuccess = async (response) => {
-
-        // Lấy Authorization Code từ response
         const authorizationCode = response.credential;
-
-        // Gửi mã authorizationCode đến backend để lấy access_token
-        const result = await axios.post(`${import.meta.env.VITE_SERVER_URL}auth/google`, {
-            googleToken: authorizationCode,
-        });
-        login(result.data.token, result.data.username);
-
-    }
+        setLoading(true);
+        try {
+            // Gửi mã authorizationCode đến backend để lấy access_token
+            const result = await axios.post(`${import.meta.env.VITE_SERVER_URL}auth/google`, {
+                googleToken: authorizationCode,
+            });
+            login(result.data.token, result.data.username);
+        } catch (error) {
+            console.error("Đăng nhập thất bại", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleGoogleLoginFailure = (error) => {
         console.error(error);
